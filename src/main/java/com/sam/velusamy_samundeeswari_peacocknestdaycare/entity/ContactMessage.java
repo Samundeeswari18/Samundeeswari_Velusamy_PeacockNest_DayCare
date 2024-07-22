@@ -9,6 +9,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+//Lombok to reduce the boiler plate code
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,10 +18,12 @@ import java.time.LocalDate;
 @Entity
 public class ContactMessage {
 
+    //Primary key and auto increment
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Variables and properties to the table
     private String fullName;
     private String email;
     private String message;

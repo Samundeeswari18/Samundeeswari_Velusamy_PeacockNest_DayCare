@@ -25,6 +25,8 @@ public class UserController {
         this.userService = userService;
     }
 
+    //Displays the user registration form.
+    //Adds an empty UserDto object to the model to bind form data.
     @GetMapping("/userRegistration")
     public String userRegistration(Model model){
         UserDto userDto =new UserDto();
@@ -32,6 +34,8 @@ public class UserController {
         return "userRegistration";
     }
 
+    //Handles the submission of the user registration form.
+    // Validates the form data and checks for existing users with the same email.
     @PostMapping("/userRegistration/save")
     public String saveRegistration(@Valid @ModelAttribute("user") UserDto user, BindingResult result, Model model) {
         User existing =userService.findUserByEmail(user.getEmail());
@@ -49,6 +53,7 @@ public class UserController {
     }
 
 
+    // Displays a list of all registered users.
     @GetMapping("/registeredUsers")
     public String listRegisteredUsers(Model model){
         List<UserDto> users= userService.findAllUsers();

@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//Lombok to avoid the boiler plate code
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -15,10 +15,12 @@ import java.util.List;
 @Table(name="users")
 public class User {
 
+    //Primary key and auto increment
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //Validation for the userName, email, and password
     @Column(nullable = false,unique = true)
     private String userName;
 
@@ -28,6 +30,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    //properties and variable to the user table
     private String firstName;
     private String lastName;
     private String phone;

@@ -26,7 +26,7 @@ public class AuthorizeController {
         this.userService = userService;
     }
 
-
+    //access the login page
     @GetMapping("/login")
     public String loginForm()
     {
@@ -34,12 +34,13 @@ public class AuthorizeController {
     }
 
 
-
+    // Admin Dashboard
     @GetMapping("/adminDashboard")
     public String adminDashboard() {
         return "adminDashboard";  // Ensure you have this template
     }
 
+    //Parent dashboard
     @GetMapping("/parentDashboard")
     public String userDashboard() {
         return "parentDashboard";  // Ensure you have this template

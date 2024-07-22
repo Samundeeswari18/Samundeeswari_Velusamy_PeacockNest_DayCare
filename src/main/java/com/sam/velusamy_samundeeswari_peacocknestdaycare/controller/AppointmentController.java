@@ -20,19 +20,21 @@ public class AppointmentController {
     @Autowired
     private AppointmentService appointmentService;
 
+    // Show the form for creating a new appointment
     @GetMapping("/create")
     public String showCreateAppointmentForm(Model model) {
         model.addAttribute("appointmentDto", new AppointmentDto());
         return "createAppointment";
     }
 
-
+    // Display the list of all appointments
     @GetMapping("/list")
     public String showAllAppointments(Model model) {
         model.addAttribute("appointments", appointmentService.findAllAppointments());
         return "appointments";
     }
 
+    // Handle the form submission for creating a new appointment
     @PostMapping("/create")
     public String createAppointment(@Valid @ModelAttribute AppointmentDto appointmentDto, Model model) {
         appointmentService.createAppointment(appointmentDto);
@@ -40,6 +42,7 @@ public class AppointmentController {
         return "redirect:/appointments/create?success";
     }
 
+    // Handle the deletion of an appointment by its ID
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteAppointment(@PathVariable Long id) {
         appointmentService.deleteAppointment(id);

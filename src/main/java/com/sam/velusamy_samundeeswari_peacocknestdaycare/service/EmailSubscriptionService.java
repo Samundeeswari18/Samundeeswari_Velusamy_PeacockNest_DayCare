@@ -17,10 +17,23 @@ public class EmailSubscriptionService {
         this.emailSubscriptionRepository = emailSubscriptionRepository;
     }
 
+    /**
+     * Saves an email subscription to the repository.
+     *
+     * @param emailSubscription the EmailSubscription entity to save
+     * @return the saved EmailSubscription entity
+     */
     public EmailSubscription saveEmailSubscription(EmailSubscription emailSubscription) {
         return emailSubscriptionRepository.save(emailSubscription);
     }
-    public List<EmailSubscription> findAllEmailSubscription() {
+
+    /**
+     * Retrieves all email subscriptions from the repository.
+     *
+     * @return a list of all EmailSubscription entities
+     */
+    public List<EmailSubscription> findAllEmailSubscription()
+    {
         return emailSubscriptionRepository.findAll();
     }
 }

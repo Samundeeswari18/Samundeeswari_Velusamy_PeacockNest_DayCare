@@ -25,17 +25,24 @@ public class ContactController {
 //        return "index";
 //    }
 
+    // Displays the contact form.
+    //Adds an empty ContactMessage object to the model to bind form data.
     @GetMapping("/contact")
     public String showContactForm(Model model) {
         model.addAttribute("contactMessage", new ContactMessage());
         return "contact";
     }
 
+//    Handles the submission of the contact form.
+//    Saves the contact message using the ContactMessageService.
     @PostMapping("/contact")
     public String submitContactForm(@ModelAttribute ContactMessage contactMessage) {
         contactMessageService.saveMessage(contactMessage);
         return "redirect:/contact?success";
     }
+
+    //Displays a list of all contact messages.
+    // Adds the list of contact messages to the model.
 
     @GetMapping("/contact/list")
     public String showListOfContactMessages(Model model) {
@@ -44,18 +51,21 @@ public class ContactController {
     }
 
 
+    //Displays the about us page.
     @GetMapping("/about")
     public String showAboutUs(Model model) {
         return "about";
     }
 
 
+    //Displays the calculate page.
     @GetMapping("/calculate")
     public String showCalculateFeeForm(Model model) {
 
         return "calculate";
     }
 
+    //Displays the welcome/Gallery(images and videos) page.
    @GetMapping("/welcome")
     public String showWelcomeForm(Model model) {
         return "welcome";

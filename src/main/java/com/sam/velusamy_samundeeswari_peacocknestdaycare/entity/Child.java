@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 
 @Getter
-@Setter
+@Setter         // Getters and Setters
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -28,15 +28,17 @@ public class Child {
     @JoinColumn(name = "parent_id",nullable = false)
     private  User user;
 
-    // Getters and Setters
 
+    // Calculates the age of the child based on the current date and the date of birth (dob).
     public int getAge() {
         return LocalDate.now().getYear() - dob.getYear();
     }
 
+    // Sets the parent user for the child.
     public void setParent(User user) {
     }
 
+    //ToString Method
     @Override
     public String toString() {
         return "Child{" +

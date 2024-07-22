@@ -68,6 +68,7 @@ public class UserServiceImplementation implements UserService {
         userRepository.save(user);
     }
 
+    //Find user by email
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
@@ -85,6 +86,7 @@ public class UserServiceImplementation implements UserService {
     }
 
 
+    //Retrieve the list of users
     @Override
     public List<UserDto> findAllUsers() {
         List<User> users= userRepository.findAll();
@@ -92,18 +94,13 @@ public class UserServiceImplementation implements UserService {
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public List<User> getAllUsers() {
-        List<User> users=userRepository.findAll();
-        return List.of();
-    }
-
-
+    //getting user by id
     @Override
     public Optional<User> getUserById(Long parentId) {
         return Optional.empty();
     }
 
+    //Convert user entity to UserDto
     private UserDto convertEntityToDto(User user){
         UserDto userDto = new UserDto();
 

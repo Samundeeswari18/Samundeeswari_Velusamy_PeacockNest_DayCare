@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.List;
 
-
+//Lombok to avoid boiler plate code
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -16,6 +16,7 @@ import java.util.List;
 public class Role {
 
 
+    //primary key and auto increment
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,6 +24,7 @@ public class Role {
     @Column(nullable = false, unique = true)
     private String name;
 
+    //Relationship that many users can have many role like parent and admin
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 

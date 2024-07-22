@@ -31,6 +31,7 @@ public class Employee {
     private LocalDate registrationDate;
 
 
+    //Sets the registration date to the current date before persisting the entity.
     @PrePersist
     protected void onCreate() {
         registrationDate = LocalDate.now();

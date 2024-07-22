@@ -18,23 +18,22 @@ public class EmailSubscriptionController {
         this.emailSubscriptionService = emailSubscriptionService;
     }
 
-//    @GetMapping("/index")
-//    public String showIndexForm(Model model) {
-//        return "index";
-//    }
-
+    // Displays the email subscription form on the index page.
     @GetMapping("/index")
     public String showEmailSubscriptionForm(Model model) {
         model.addAttribute("emailSubscription", new EmailSubscription());
         return "index"; // This assumes your template is named index.html
     }
 
+    //Handles the submission of the email subscription form.
+    //Saves the email subscription using the EmailSubscriptionService.
     @PostMapping("/emailSubscription")
     public String submitEmailSubscriptionForm(@ModelAttribute EmailSubscription emailSubscription) {
         emailSubscriptionService.saveEmailSubscription(emailSubscription);
         return "redirect:/index?success"; // Redirect to the form page with a success parameter
     }
 
+    //Displays a list of all email subscriptions.
     @GetMapping("/emailSubscription/list")
     public String showAllEmailSubscription(Model model) {
         model.addAttribute("emailSubscription", emailSubscriptionService.findAllEmailSubscription());

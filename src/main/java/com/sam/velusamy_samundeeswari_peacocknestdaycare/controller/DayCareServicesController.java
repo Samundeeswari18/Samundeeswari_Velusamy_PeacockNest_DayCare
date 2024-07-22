@@ -9,17 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DayCareServicesController {
 
 
-
+        //    Displays the PartTime Services page.
         @GetMapping("/partTimeService")
         public String partTimeCare() {
             return "partTimeService";
         }
 
+        //Displays the FullTime Services page.
         @GetMapping("/fullTimeService")
         public String fullTimeCare() {
             return "fullTimeService";
         }
 
+        //    Displays the afterSchool Services page.
         @GetMapping("/afterSchoolService")
         public String afterSchoolProgram() {
             return "afterSchoolService";

@@ -35,9 +35,11 @@ public class ChildController {
     @Autowired
     private FileStorageService fileStorageService;
 
+
+    //Getting the child registration page
     @GetMapping("/childRegister")
     public String showAddChildForm(Model model) {
-        List<User> users = userService.getAllUsers();
+        List<UserDto> users = userService.findAllUsers();
         model.addAttribute("child", new Child());
         model.addAttribute("parentId"); // Replace with actual parentId
 //        model.addAttribute("parents", parents);
@@ -65,6 +67,8 @@ public class ChildController {
 //        return "childRegistrationForm"; // Ensure this is the correct template name
 //    }
 //
+
+    //Saving the information into the database
     @PostMapping("/childRegister")
     public String saveChild(@Valid @ModelAttribute("child") Child child,
                             BindingResult result,
@@ -101,6 +105,7 @@ public class ChildController {
     }
 
 
+    // get list of children
     @GetMapping("/registeredChildren/list")
     public String listChildren(Model model) {
         List<Child> children = childService.getAllChildren();
@@ -109,13 +114,14 @@ public class ChildController {
     }
 
 
+    //Get the Delete Child form to delete the child record
     @GetMapping("/deleteChild")
     public String showDeleteChildPage() {
         return "deleteChild";
     }
 
 
-
+    //After successfully deleted child
     @PostMapping("/deleteChild")
     public String deleteChild(@RequestParam("childId") Long childId, Model model) {
         if (childService.existsById(childId)) {
