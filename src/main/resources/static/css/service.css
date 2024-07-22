@@ -1,0 +1,56 @@
+/* styles.css */
+
+body {
+    font-family: "Palatino Linotype", sans-serif;
+    color: #333;
+    font-size: 21px;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #003366;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #004d99;
+}
+
+footer {
+    background-color: lightblue;
+    color: #666;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile devices -->
+    <title>Peacock-Nest Kids DayCare Center - Home</title> <!-- Sets the title of the webpage -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"> <!-- Links to the external CSS file for styling -->
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: cadetblue; /* Professional blue */
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 10px 15px;
+        }
+        nav ul li a:hover {
+            background-color: #0056b3; /* Darker blue for hover effect */
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+            color: #343a40; /* Dark grey for better readability */
+            margin: 20px 0;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff; /* Professional blue */
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light grey for alternating rows */
+        }
+        tr:hover {
+            background-color: #e9ecef; /* Slightly darker grey for hover effect */
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #007bff; /* Same blue as header */
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html" th:href="@{/index}">Home</a></li> <!-- Navigation link to Home page -->
+            <li><a href="about.html" th:href="@{/about}">About Us</a></li> <!-- Navigation link to About Us page -->
+            <li>
+                <a href="#">Services</a> <!-- Navigation link to Services with a dropdown menu -->
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html" th:href="@{/contact}">Contact Us</a></li> <!-- Navigation link to Contact Us page -->
+            <li><a href="welcome.html" th:href="@{/welcome}">Images/Videos</a></li> <!-- Navigation link to Images/Videos page -->
+        </ul>
+    </nav>
+</header>
+
+<h1>List of Contact Us Messages</h1>
+
+<!-- Table to display contact messages -->
+<table>
+    <thead>
+    <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date</th>
+        <th>Message</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over contactMessages and display each contact -->
+    <tr th:each="contact: ${contactMessages}">
+        <td th:text="${contact.fullName}">Full Name</td>
+        <td th:text="${contact.email}">Email</td>
+        <td th:text="${contact.phone}">Phone Number</td>
+        <td th:text="${contact.date}">Date</td>
+        <td th:text="${contact.message}">Message</td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>
+    <p>&copy; 2024 Peacock-Nest Kids Daycare</p> <!-- Footer content with copyright information -->
+</footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Metadata for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peacock-Nest Kids Daycare Center - Contact</title>
+<!--    &lt;!&ndash; Link to external JavaScript file &ndash;&gt;-->
+<!--    <script type="text/javascript" src="../static/JavaScript/JavaScriptFile.js" th:src="@{/JavaScript/JavaScriptFile.js}"></script>-->
+
+    <!-- Link to external CSS and Js file for styles -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+<!--    <script type="text/javascript" src="../static/js/JavaScriptFile.js" th:src="@{/js/JavaScriptFile.js}" defer></script>-->
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <!-- Navigation links -->
+            <li><a th:href="@{/index}" href="index.html">Home</a></li>
+            <li><a th:href="@{/about}" href="about.html">About Us</a></li>
+            <li>
+                <!-- Dropdown menu for services -->
+                <a href="#">Services</a>
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a th:href="@{/contact}" href="contact.html">Contact Us</a></li>
+            <li><a th:href="@{/welcome}" href="welcome.html">Images/Videos</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="contact-txt">
+        <!-- Heading for contact section -->
+        <h1 style="color: midnightblue;font-weight: bold;"><u>Contact Us</u></h1>
+        <!-- Introduction paragraph -->
+        <p>We would love to hear from you! Please reach out to us through any of the following methods:</p>
+        <!-- Contact information list -->
+        <ul>
+            <li><b>Email:</b> <a href="mailto:peacocknest@gmail.com">peacocknest@gmail.com</a></li>
+            <li><b>Phone:</b> <a href="tel:+91 994399592">9943995942</a></li>
+            <li><b>Address:</b> Kasturi Bai Street, Ganapathy, Coimbatore-641006, TamilNadu, India</li>
+        </ul>
+        <div class="contact-flex">
+            <!-- Contact form -->
+            <form id="contact-form" class="box1" th:action="@{/contact}" th:object="${contactMessage}" method="post">
+                <h3 style="color: midnightblue; font-weight: bold"><u>Get in Touch</u></h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" th:field="*{fullName}" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:field="*{email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" th:field="*{phone}" required>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" th:field="*{date}" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" th:field="*{message}" required></textarea>
+                <button type="submit" name="contact-form">Send Message</button>
+            </form>
+
+
+            <!-- Image of the building -->
+            <img th:src="@{/images/PNBldg.png}" src="../static/images/PNBldg.png" alt="Building" class="box1">
+            <!-- Embedded Google Map -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d62655.49862630606!2d76.95003747111207!3d11.040976260618065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKasturi%20Bai%20Street%2C%20Ganapathy%2C%20Coimbatore-641006%2C%20TamilNadu%2C%20India!5e0!3m2!1sen!2sus!4v1719122229651!5m2!1sen!2sus"
+                    width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="box1"></iframe>
+        </div>
+    </section>
+</main>
+<footer>
+    <!-- Footer content -->
+    <p>&copy; 2024 Peacock Nest Daycare</p>
+</footer>
+</body>
+</html>
+
+
+

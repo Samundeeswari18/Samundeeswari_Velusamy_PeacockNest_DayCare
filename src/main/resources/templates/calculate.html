@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Metadata for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peacock-Nest Kids Daycare Center - Eligibility and Fee Calculation</title>
+    <!-- Link to external CSS file for styles -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <!-- Link to external JavaScript file with defer attribute -->
+    <script type="text/javascript" src="../static/js/JavaScriptFile.js" th:src="@{/js/JavaScriptFile.js}" defer></script>
+</head>
+<body>
+<header>
+    <!-- Navigation bar -->
+    <nav>
+        <ul>
+            <!-- Navigation links -->
+            <li><a  href="index.html" th:href="@{index}">Home</a></li>
+            <li><a  href="about.html" th:href="@{about}">About Us</a></li>
+            <li>
+                <!-- Dropdown menu for services -->
+                <a href="#">Services</a>
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html"  th:href="@{contact}">Contact Us</a></li>
+            <li><a href="welcome.html" th:href="@{welcome}">Images/Videos</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="eligibility-form">
+        <!-- Heading for the eligibility form section -->
+        <h2>Daycare Eligibility and Fee Calculation</h2>
+        <!-- Form for calculating eligibility and fees -->
+        <form id="eligibility-form">
+            <!-- Input for child's age -->
+            <label for="age">Child's Age (months):</label>
+            <input type="number" id="age" name="age" required min="6" max="144">
+
+            <!-- Dropdown for number of days -->
+            <label for="days">Number of Days:</label>
+            <select id="days" name="days" required>
+                <option value="1">1 Day</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+                <option value="5">5 Days</option>
+            </select>
+
+            <!-- Dropdown for type of care -->
+            <label for="care-type">Type of Care:</label>
+            <select id="care-type" name="care-type" required>
+                <option value="full-time">Full-time Care</option>
+                <option value="part-time">Part-time Care</option>
+                <option value="after-school">After-school Programs</option>
+            </select>
+
+            <!-- Checkbox for sibling discount -->
+            <label for="sibling">Does the child have a sibling enrolled? (30% discount for the second child):</label>
+            <input type="checkbox" id="sibling" name="sibling">
+
+            <!-- Submit button -->
+            <button type="submit">Check Eligibility and Calculate Fees</button>
+        </form>
+        <!-- Div to display the result -->
+        <div id="result"></div>
+    </section>
+</main>
+<footer>
+    <!-- Footer content -->
+    <p>&copy; 2024 Peacock Nest Daycare</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" >
+    <title>Parent Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #0056b3; /* Darker Blue */
+            padding: 15px 20px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #003d80; /* Darker shade on hover */
+        }
+        .container {
+            padding: 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .container h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #0056b3; /* Darker Blue */
+            font-size: 18px;
+        }
+        .card a {
+            display: inline-block;
+            background-color: #007BFF; /* Blue color */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .card a:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html"  th:href="@{/index}">Home</a></li> <!-- Navigation link to Home page -->
+            <li><a href="about.html"  th:href="@{/about}">About Us</a></li> <!-- Navigation link to About Us page -->
+            <li>
+                <a href="#" class="dropdown-arrow">Services</a> <!-- Navigation link to Services with a dropdown menu and arrow -->
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html"  th:href="@{/contact}">Contact Us</a></li> <!-- Navigation link to Contact Us page -->
+            <li><a href="welcome.html"  th:href="@{/welcome}">Images/Videos</a></li>
+
+            <!--            <li>-->
+            <!--                <a href="#" class="dropdown-arrow">Registration</a> &lt;!&ndash; Navigation link to Login with a dropdown menu and arrow &ndash;&gt;-->
+            <!--                <ul class="dropdown">-->
+            <!--                    <li><a href="parentRegistrationForm.html" th:href="@{/parentRegister}">Parent</a></li> &lt;!&ndash; Dropdown link to Parent login &ndash;&gt;-->
+            <!--                    <li><a href="employeeRegistration.html" th:href="@{/employeeRegistration}">Admin</a></li> &lt;!&ndash; Dropdown link to Admin login &ndash;&gt;-->
+            <!--                </ul>-->
+            <!--            </li>-->
+
+            <!--            <li>-->
+            <!--                <a href="#" class="dropdown-arrow">Login/Registration</a> &lt;!&ndash; Navigation link to Login with a dropdown menu and arrow &ndash;&gt;-->
+            <!--                <ul class="dropdown">-->
+            <!--                    <li><a href="parentLogin.html" th:href="@{/parentLogin}">Parent</a></li> &lt;!&ndash; Dropdown link to Parent login &ndash;&gt;-->
+            <!--                    <li><a href="adminLogin.html" th:href="@{/adminLogin}">Admin</a></li> &lt;!&ndash; Dropdown link to Admin login &ndash;&gt;-->
+            <!--                </ul>-->
+            <!--            </li>-->
+            <li><a href="login.html"  th:href="@{/login}">Login/Registration</a></li>
+            <li><a href="childRegistrationForm.html" class="enroll-link" th:href="@{/childRegister}">Enroll</a></li> <!-- Navigation link to Enroll page -->
+        </ul>
+    </nav>
+</header>
+
+<div class="navbar">
+    <h1>Parent Dashboard</h1>
+    <div>
+        <a href="#" th:href="@{/parentDashboard}">Dashboard</a>
+        <a href="#" th:href="@{/childInfo}">Click Here to see Your Child Info</a>
+        <a href="#" th:href="@{/userRegistration}">Parent Registration</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+<div class="container">
+    <h1>Welcome to Your Dashboard</h1>
+
+    <div class="card">
+        <h2>Add Your Child</h2>
+        <a href="#" th:href="@{/childRegister}">Child Registration</a>
+    </div>
+
+    <div class="card">
+        <h2>Edit Your Profile</h2>
+        <a href="#" th:href="@{/#}">Edit</a>
+    </div>
+</div>
+</body>
+</html>

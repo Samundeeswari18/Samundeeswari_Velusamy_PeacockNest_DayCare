@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Appointment</title>
+    <link rel="stylesheet"    href="../static/css/appointment.css"  th:href="@{/css/appointment.css}">
+</head>
+<body>
+<h1>Create Appointment</h1>
+<form action="#" th:action="@{/appointments/create}" th:object="${appointmentDto}" method="post">
+    <div>
+        <label for="parentGuardianName">Parent/Guardian Name:</label>
+        <input type="text" id="parentGuardianName" th:field="*{parentGuardianName}" required />
+    </div>
+    <div>
+        <label for="scheduleDate">Date:</label>
+        <input type="date" id="scheduleDate" th:field="*{scheduleDate}" required />
+    </div>
+    <div>
+        <label for="scheduleTime">Time:</label>
+        <input type="time" id="scheduleTime" th:field="*{scheduleTime}" required />
+    </div>
+    <div>
+        <label for="purpose">Purpose:</label>
+        <input type="text" id="purpose" th:field="*{purpose}" required />
+    </div>
+    <div>
+        <button type="submit">Create Appointment</button>
+    </div>
+</form>
+</body>
+</html>

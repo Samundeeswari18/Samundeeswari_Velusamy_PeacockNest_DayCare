@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" >
+    <title>Children's List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00796b;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #004d40;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+        tr:hover {
+            background-color: #e0f2f1;
+        }
+        .header {
+            background-color: #004d40;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Children's List</h1>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Child Id</th>
+        <th>Parent Id</th>
+        <th>Child First Name</th>
+        <th>Child Last Name</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Medical Info</th>
+        <th>Photo Url</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="child : ${children}">
+        <td th:text="${child.childId}">ID</td>
+        <td th:text="${child.user.id}">Parent ID</td>
+        <td th:text="${child.childFirstName}">First Name</td>
+        <td th:text="${child.childLastName}">Last Name</td>
+        <td th:text="${child.dob}">Date of Birth</td>
+        <td th:text="${child.gender}">Gender</td>
+        <td th:text="${child.medicalInfo}">Medical Info</td>
+        <td><img th:src="${child.photoUrl}" alt="Photo" /></td>
+
+    </tr>
+<!--        <td th:text="${child.getAge()}"></td>-->
+<!--        <td>-->
+<!--            <img th:src="@{${child.photoUrl}}" alt="Photo" style="width: 100px; height: auto; border-radius: 5px;">-->
+<!--        </td>-->
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

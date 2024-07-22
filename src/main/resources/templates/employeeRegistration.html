@@ -1,0 +1,139 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Employee Registration</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Employee Registration</h1>-->
+<!--<form th:action="@{/employeeRegistration}" th:object="${employee}" method="post">-->
+<!--    <label for="employeeFirstName">First Name:</label>-->
+<!--    <input type="text" id="employeeFirstName" th:field="*{employeeFirstName}" required><br>-->
+<!--    <label for="employeeLastName">Last Name:</label>-->
+<!--    <input type="text" id="employeeLastName" th:field="*{employeeLastName}" required><br>-->
+<!--    <label for="employeePhoneNumber">Phone Number:</label>-->
+<!--    <input type="text" id="employeePhoneNumber" th:field="*{employeePhoneNumber}" required><br>-->
+<!--    <label for="employeeEmail">Email:</label>-->
+<!--    <input type="email" id="employeeEmail" th:field="*{employeeEmail}" required><br>-->
+<!--    <label for="employeePassword">Password:</label>-->
+<!--    <input type="password" id="employeePassword" th:field="*{employeePassword}" required><br>-->
+<!--    <label for="employeeAddress">Address:</label>-->
+<!--    <input type="text" id="employeeAddress" th:field="*{employeeAddress}" required><br>-->
+<!--    <label for="employeeCity">City:</label>-->
+<!--    <input type="text" id="employeeCity" th:field="*{employeeCity}" required><br>-->
+<!--    <label for="employeeState">State:</label>-->
+<!--    <input type="text" id="employeeState" th:field="*{employeeState}" required><br>-->
+<!--    <label for="employeeCountry">Country:</label>-->
+<!--    <input type="text" id="employeeCountry" th:field="*{employeeCountry}" required><br>-->
+<!--    <label for="employeeZip">Zip Code:</label>-->
+<!--    <input type="text" id="employeeZip" th:field="*{employeeZip}" required><br>-->
+<!--    <div th:if="${emailError}" th:text="${emailError}" style="color: red;"></div>-->
+<!--    <button type="submit">Register Employee</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Registration</title>
+    <link rel="stylesheet"  href="../static/css/style.css"  th:href="@{/css/style.css}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /*height: 100vh;*/
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Employee Registration</h1>
+    <form th:action="@{/employeeRegistration}" th:object="${employee}" method="post">
+        <label for="employeeFirstName">First Name:</label>
+        <input type="text" id="employeeFirstName" th:field="*{employeeFirstName}" required>
+
+        <label for="employeeLastName">Last Name:</label>
+        <input type="text" id="employeeLastName" th:field="*{employeeLastName}" required>
+
+        <label for="employeePhoneNumber">Phone Number:</label>
+        <input type="text" id="employeePhoneNumber" th:field="*{employeePhoneNumber}" required>
+
+        <label for="employeeEmail">Email:</label>
+        <input type="email" id="employeeEmail" th:field="*{employeeEmail}" required>
+
+        <label for="employeePassword">Password:</label>
+        <input type="password" id="employeePassword" th:field="*{employeePassword}" required>
+
+        <label for="employeeAddress">Address:</label>
+        <input type="text" id="employeeAddress" th:field="*{employeeAddress}" required>
+
+        <label for="employeeCity">City:</label>
+        <input type="text" id="employeeCity" th:field="*{employeeCity}" required>
+
+        <label for="employeeState">State:</label>
+        <input type="text" id="employeeState" th:field="*{employeeState}" required>
+
+        <label for="employeeCountry">Country:</label>
+        <input type="text" id="employeeCountry" th:field="*{employeeCountry}" required>
+
+        <label for="employeeZip">Zip Code:</label>
+        <input type="text" id="employeeZip" th:field="*{employeeZip}" required>
+
+        <input type="hidden" th:field="*{registrationDate}" th:value="${T(java.time.LocalDateTime).now()}">
+
+        <div th:if="${emailError}" class="error-message" th:text="${emailError}"></div>
+
+        <button type="submit">Register Employee</button>
+    </form>
+</div>
+</body>
+</html>

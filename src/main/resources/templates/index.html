@@ -1,0 +1,195 @@
+<!--********************************************** Login and Enroll ******************************************-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile devices -->
+    <title>Peacock-Nest Kids DayCare Center - Home</title> <!-- Sets the title of the webpage -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"> <!-- Links to the external CSS file for styling -->
+<!--        <script type="text/javascript" src="../static/js/JavaScriptFile.js" th:src="@{/js/JavaScriptFile.js}"></script> &lt;!&ndash; Links to the external JavaScript file &ndash;&gt;-->
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!--    &lt;!&ndash; Link to Font Awesome &ndash;&gt;-->
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">-->
+
+    <style>
+        /* Additional styling for logo and tagline */
+        .ebox {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: lightgrey; /* Background color for the logo and tagline section */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .ebox img {
+            width: 250px; /* Adjust width as needed */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded corners for the image */
+        }
+        .ebox h5 {
+            margin: 0;
+            font-size: 1.2em; /* Adjust font size as needed */
+            font-style: italic;
+            text-align: center;
+        }
+        #eligibility {
+            text-align: center;
+            margin-top: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 10px;
+            position: relative;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+        }
+        nav ul li a:hover {
+            color: white; /* Hover color */
+        }
+        nav ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: lightgreen;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            list-style-type: none;
+        }
+        nav ul li:hover ul.dropdown {
+            display: block;
+        }
+        nav ul li ul.dropdown li {
+            display: block;
+            padding: 10px;
+        }
+        nav ul li ul.dropdown li a {
+            display: block;
+            color: black;
+        }
+        nav ul li ul.dropdown li a:hover {
+            background-color: #f1f1f1;
+        }
+        #a1{
+            background-color: lightgreen;
+            font-size: large;
+            font-family: "Palatino Linotype";
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        #l1{
+            background-color: lightblue;
+            font-size: large;
+            font-family: "Palatino Linotype";
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+        .enroll-link {
+            font-size: large;
+            color: #FFF;
+            background-color:blueviolet;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .enroll-link:hover {
+            background-color: green;
+        }
+        .dropdown-arrow::after {
+            content: ' \25BC'; /* Unicode for downward arrow */
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html"  th:href="@{/index}">Home</a></li> <!-- Navigation link to Home page -->
+            <li><a href="about.html"  th:href="@{/about}">About Us</a></li> <!-- Navigation link to About Us page -->
+            <li>
+                <a href="#" class="dropdown-arrow">Services</a> <!-- Navigation link to Services with a dropdown menu and arrow -->
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html"  th:href="@{/contact}">Contact Us</a></li> <!-- Navigation link to Contact Us page -->
+            <li><a href="welcome.html"  th:href="@{/welcome}">Images/Videos</a></li>
+
+            <li id="a1"><a href="createAppointment.html"  th:href="@{/appointments/create}">Schedule Your Appointment</a></li>
+            <li id="l1"><a href="login.html"  th:href="@{/login}">Login/Registration</a></li>
+            <li><a href="childRegistrationForm.html" class="enroll-link" th:href="@{/childRegister}">Enroll</a></li> <!-- Navigation link to Enroll page -->
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="logo-p">
+        <section>
+            <div class="marquee">
+                Peacock-Nest Kids DayCare Center <!-- Marquee text displaying the name of the daycare center -->
+            </div>
+            <div class="slogan">
+                <p id="p-index">Welcome to Peacock Nest Daycare Center, where we nurture little minds with the same
+                    care and attention as a peacock creates its nest with love, dedication, and a
+                    touch of whimsy. Like the vibrant feathers that adorn a peacock, our
+                    center is a place of color and joy, designed to inspire curiosity and
+                    growth in every child. Here, safety and comfort are paramount, ensuring
+                    that each child feels cherished and secure as they embark on their journey of discovery.
+                    Join us in creating memories and learning experiences that will shape their futures,
+                    one feather at a time.<br></p> <!-- Description and welcome message for the daycare center -->
+
+                <div class="ebox">
+                    <div>
+                        <img src="../static/images/PeacockNestLogo.jpg" th:src="@{/images/PeacockNestLogo.jpg}" alt="Peacock-Nest Kids Daycare"> <!-- Logo of the daycare center -->
+                    </div>
+                    <div>
+                        <h5>"Growing Bright Minds in a Nurturing Nest"<br></h5> <!-- Tagline of the daycare center -->
+                        <div id="eligibility"><a href="calculate"  th:href="@{/calculate}">Eligibility and Fee Calculation</a></div> <!-- Link to Eligibility and Fee Calculation page -->
+                    </div>
+                </div>
+                <div class="img-txt">
+                    <img width="650" src="../static/images/Daycaretwo.jpg" th:src="@{/images/Daycaretwo.jpg}" alt="Peacock-Nest Kids Daycare"> <!-- Image of the daycare center -->
+
+                    <p class="box">
+                        At Peacock Nest Daycare Center, we believe that every child is a unique and
+                        precious gem, ready to spread their wings and soar. Our dedicated team of educators
+                        and caregivers work tirelessly to create an environment that balances structured
+                        learning with free-spirited play, fostering both academic and social development.
+                        With a curriculum that embraces creativity, diversity, and exploration,
+                        we encourage children to discover their passions and talents.
+                        Our vibrant classrooms and outdoor spaces are designed to stimulate young minds,
+                        promoting a love for learning that will last a lifetime. Join us at Peacock Nest
+                        Daycare Center, where every day is an opportunity to watch your child flourish in a
+                        supportive and enchanting setting.
+                    </p> <!-- Detailed description of the daycare center's philosophy and environment -->
+                </div>
+            </div>
+        </section>
+    </div>
+    <section>
+        <h2>Sign Up for Our Newsletter</h2> <!-- Heading for the newsletter signup form -->
+        <form id="newsletter-form" th:action="@{/emailSubscription}" th:object="${emailSubscription}" method="post">
+            <label for="newsletter-email" ><strong>Email:</strong></label> <!-- Label for the email input field -->
+            <input type="email" id="newsletter-email" name="email" th:field="*{emailAddress}" required> <!-- Input field for the email, required for submission -->
+            <button id="id-subscribe" type="submit">Subscribe</button> <!-- Submit button for the form -->
+        </form>
+        <div th:if="${param.success}">
+            <p>Thank you for Subscribing us. </p>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Peacock-Nest Kids Daycare</p> <!-- Footer content with copyright information -->
+</footer>
+</body>
+</html>

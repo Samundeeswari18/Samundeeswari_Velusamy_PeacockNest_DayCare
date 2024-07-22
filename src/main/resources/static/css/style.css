@@ -1,0 +1,306 @@
+/*This is the External CSS file for all the pages for the Website("Peacock-Nest Kids Daycare Center")
+but some of the pages I have given the Internal and Inline style*/
+
+/* Set the font family for the entire document */
+body {
+    font-family: 'Roboto',"Font Awesome 5 Brands",sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: lightgrey;
+}
+
+header {
+    background-color: cadetblue; /* Background color for the header */
+    color: white; /* Text color */
+    padding: 1em 0; /* Padding above and below header content */
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list styles */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Display navigation items in a flex container */
+    justify-content: center; /* Center-align navigation items */
+}
+
+nav ul li {
+    margin: 0 1em; /* Margin around navigation items */
+    position: relative; /* Positioning context for dropdowns */
+}
+
+nav ul li a {
+    color: white; /* Text color for navigation links */
+    text-decoration: none; /* Remove underline from links */
+}
+
+nav ul li ul.dropdown {
+    display: none; /* Initially hide dropdown menus */
+    position: absolute; /* Position dropdown menus absolutely */
+    background-color: cadetblue; /* Background color for dropdown menus */
+    list-style-type: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    top: 100%; /* Position dropdowns just below parent items */
+    left: 0; /* Align dropdowns with the left edge of parent items */
+}
+
+nav ul li:hover ul.dropdown {
+    display: block; /* Display dropdown menu on hover */
+}
+
+nav ul li ul.dropdown li {
+    margin: 0; /* Remove margin from dropdown items */
+}
+
+nav ul li ul.dropdown li a {
+    display: block; /* Display dropdown links as block elements */
+    padding: 0.5em 1em; /* Padding for dropdown links */
+}
+
+main {
+    padding: 2em; /* Padding inside the main content area */
+}
+
+footer {
+    background-color: lightblue; /* Background color for the footer */
+    color: blue; /* Text color */
+    text-align: center; /* Center-align footer content */
+    padding: 1em 0; /* Padding above and below footer content */
+    width: 100%; /* Full width */
+    bottom: 0; /* Position at the bottom of the viewport */
+}
+
+table {
+    width: 100%; /* Full width for tables */
+    border-collapse: collapse; /* Collapse table borders */
+    margin: 2em 0; /* Margin around tables */
+}
+
+table, th, td {
+    border: 1px solid black; /* Border style for table elements */
+}
+
+th, td {
+    padding: 1em; /* Padding inside table cells */
+    text-align: left; /* Left-align text inside table cells */
+}
+
+form {
+    display: flex; /* Display form items in a flex container */
+    flex-direction: column; /* Arrange form items in a column */
+}
+
+form label {
+    margin-bottom: 0.5em; /* Margin below form labels */
+}
+
+form input,
+form textarea,
+form button {
+    margin-bottom: 1em; /* Margin below form inputs and buttons */
+    padding: 0.5em; /* Padding inside form inputs and buttons */
+    font-size: 1em; /* Font size for form inputs and buttons */
+}
+
+.logo-p {
+    display: flex; /* Display logo section as a flex container */
+    flex-direction: column; /* Arrange logo section items in a column */
+}
+
+button {
+    background-color: cadetblue; /* Background color for buttons */
+    color: white; /* Text color */
+    border: none; /* Remove button border */
+    padding: 0.5em; /* Padding inside buttons */
+    cursor: pointer; /* Cursor style on hover */
+}
+
+button:hover {
+    background-color: #45a049; /* Background color on button hover */
+}
+
+/* Keyframes for the marquee animation */
+@keyframes marquee {
+    100% { transform: translateX(100%); } /* Animation to slide content horizontally */
+}
+
+/* Apply the marquee animation to elements with the .marquee class */
+.marquee {
+
+    color: green; /* Text color */
+    text-align: center; /* Center-align text */
+    font-size: xxx-large; /* Font size */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    animation: marquee 10s linear infinite; /* Apply marquee animation */
+}
+
+/* Style for dropdown arrow */
+.dropdown::after {
+    content: ""; /* Empty content */
+    position: absolute; /* Position absolutely */
+    top: 100%; /* Position at the bottom of parent */
+    left: 50%; /* Center horizontally */
+    margin-left: -5px; /* Adjust horizontal position */
+    border-width: 5px; /* Border width */
+    border-style: solid; /* Border style */
+    border-color: #3498db transparent transparent transparent; /* Border color */
+}
+
+.slogan {
+    display: flex; /* Display slogan section as a flex container */
+    flex-direction: column; /* Arrange slogan section items in a column */
+}
+
+#p-index {
+    color: darkblue; /* Text color */
+    font-weight: bold; /* Font weight */
+    font-size: 27px; /* Font size */
+    border: blue; /* Border color */
+    background-color: lightgrey; /* Background color */
+    text-align: justify; /* Justify text */
+    font-family: "Palatino Linotype"; /* Font family */
+    font-style: italic; /* Italic text */
+}
+
+h6 {
+    color: green; /* Text color */
+    font-weight: bold; /* Font weight */
+    font-style: italic; /* Italic text */
+}
+
+.box {
+    border: 5px black; /* Border style */
+    border-color: blue; /* Border color */
+    border-radius: 8px; /* Border radius */
+    padding: 20px; /* Padding inside box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+    color: darkgreen; /* Text color */
+    font-weight: bold; /* Font weight */
+    font-size: 27px; /* Font size */
+    background-color: lightgrey; /* Background color */
+    text-align: justify; /* Justify text */
+    font-family: "Palatino Linotype"; /* Font family */
+}
+
+.box1 {
+    border: 5px black; /* Border style */
+    border-color: blue; /* Border color */
+    border-radius: 8px; /* Border radius */
+    width: 550px; /* Width */
+    height: 600px; /* Height */
+    padding: 10px; /* Padding inside box */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+    color: darkgreen; /* Text color */
+    font-weight: bold; /* Font weight */
+    font-size: 18px; /* Font size */
+    background-color: mintcream; /* Background color */
+}
+
+.img-txt {
+    display: flex; /* Display image-text section as a flex container */
+    flex-direction: row-reverse; /* Arrange items in a row with reverse order */
+    margin-left: auto; /* Align to the left */
+    margin-bottom: 50px; /* Margin below */
+}
+
+.about-images {
+    display: flex; /* Display about images as a flex container */
+    flex-direction: row; /* Arrange items in a row */
+    gap: 20px; /* Gap between items */
+    align-items: center; /* Align items vertically */
+}
+
+.h2-about {
+    color: blueviolet; /* Text color */
+}
+
+.p-about {
+    color: darkred; /* Text color */
+    font-family: "Palatino Linotype"; /* Font family */
+    font-size: larger; /* Font size */
+    font-weight: bold; /* Font weight */
+}
+
+.contact-txt {
+    font-size: larger; /* Font size */
+    font-family: "Palatino Linotype"; /* Font family */
+    color: black; /* Text color */
+}
+
+.contact-flex {
+    display: flex; /* Display contact section as a flex container */
+    flex-direction: row; /* Arrange items in a row */
+    margin-left: auto; /* Align to the left */
+    margin-right: 0px; /* Align to the right */
+
+}
+
+.eligibility-form {
+    background-color: white; /* Background color */
+    padding: 2em; /* Padding inside form */
+    border-radius: 5px; /* Border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    max-width: 600px; /* Maximum width */
+    margin: 0 auto; /* Center-align horizontally */
+}
+
+.eligibility-form h2 {
+    color: midnightblue; /* Text color */
+    font-weight: bold; /* Font weight */
+}
+
+.eligibility-form form {
+    display: flex; /* Display form items as a flex container */
+    flex-direction: column; /* Arrange form items in a column */
+}
+
+.eligibility-form label {
+    margin-top: 1em; /* Margin above form labels */
+    font-weight: bold; /* Font weight */
+}
+
+.eligibility-form input,
+.eligibility-form select,
+.eligibility-form button {
+    margin-top: 0.5em; /* Margin above form inputs and buttons */
+    padding: 0.5em; /* Padding inside form inputs and buttons */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Border radius */
+}
+
+.eligibility-form button {
+    background-color: #4CAF50; /* Background color for buttons */
+    color: white; /* Text color */
+    font-weight: bold; /* Font weight */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Cursor style */
+    margin-top: 1.5em; /* Margin above button */
+}
+
+.eligibility-form button:hover {
+    background-color: #45a049; /* Background color on button hover */
+}
+
+#result {
+    margin-top: 2em; /* Margin above result section */
+    font-weight: bold; /* Font weight */
+}
+
+.error {
+    color: red; /* Text color */
+}
+
+.ebox {
+    display: flex; /* Display ebox section as a flex container */
+    flex-direction: row; /* Arrange items in a row */
+}
+
+#eligibility {
+    margin-left: auto; /* Align to the left */
+    margin-top: 100px; /* Margin above */
+    margin-right: 100px; /* Margin to the right */
+    font-family: "Palatino Linotype"; /* Font family */
+    font-size: xx-large; /* Font size */
+}
+

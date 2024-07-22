@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"> <!-- Sets the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures proper scaling on mobile devices -->
+   <!-- Sets the title of the webpage -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}"> <!-- Links to the external CSS file for styling -->
+    <!--    <script type="text/javascript" src="../static/js/JavaScriptFile.js" th:src="@{/js/JavaScriptFile.js}"></script> &lt;!&ndash; Links to the external JavaScript file &ndash;&gt;-->
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!--    &lt;!&ndash; Link to Font Awesome &ndash;&gt;-->
+    <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style}" >
+    <title>List of all Email Subscriptions</title>
+    <!-- Add any required CSS or JS links here -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid blue;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: lightgreen;
+        }
+        tr:nth-child(even) {
+            background-color:lightsteelblue;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html"  th:href="@{/index}">Home</a></li> <!-- Navigation link to Home page -->
+            <li><a href="about.html"  th:href="@{/about}">About Us</a></li> <!-- Navigation link to About Us page -->
+            <li>
+                <a href="#">Services</a> <!-- Navigation link to Services with a dropdown menu -->
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html"  th:href="@{/contact}">Contact Us</a></li> <!-- Navigation link to Contact Us page -->
+            <li><a href="welcome.html"  th:href="@{/welcome}">Images/Videos</a></li> <!-- Navigation link to Images/Videos page -->
+        </ul>
+    </nav>
+</header>
+<h1>List of All Email Subscriptions</h1>
+
+<!-- Table to display contact messages -->
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Email Address</th>
+        <th>Subscription Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterate over contactList and display each contact -->
+    <tr th:each="email: ${emailSubscription}">
+        <td th:text="${email.id}"></td>
+        <td th:text="${email.emailAddress}"></td>
+        <td th:text="${email.subscriptionDate}"></td>
+    </tr>
+    </tbody>
+</table>
+<!--<footer>-->
+<!--    <p>&copy; 2024 Peacock-Nest Kids Daycare</p> &lt;!&ndash; Footer content with copyright information &ndash;&gt;-->
+<!--</footer>-->
+</body>
+</html>

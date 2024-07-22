@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Parent Information</title>
+    <link rel="stylesheet" th:href="@{/css/childInfoByParentEmail.css}" href="../static/css/childInfoByParentEmail.css">
+</head>
+<body>
+<div class="container">
+    <h1>Enter Parent Email</h1>
+    <form action="#" th:action="@{/childInfo}" method="post">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:value="${email}" required />
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <div th:if="${error}" class="error">
+        <p th:text="${error}"></p>
+    </div>
+    <div th:if="${children != null && !children.isEmpty()}" class="user-details">
+        <h2>Your Child/Children Information</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>Child FirstName</th>
+                    <th>Child LastName</th>
+                    <th>Date of Birth</th>
+                    <th>Medical Info</th>
+                    <th>Photo URL</th>
+                    <th>Gender</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="child : ${children}">
+                    <td th:text="${child.childFirstName}"></td>
+                    <td th:text="${child.childLastName}"></td>
+                    <td th:text="${child.dob}"></td>
+                    <td th:text="${child.medicalInfo}"></td>
+                    <td th:text="${child.photoUrl}"></td>
+                    <td th:text="${child.gender}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div th:if="${children == null || children.isEmpty()}" class="error">
+        <p>No children found for the provided parent email.</p>
+    </div>
+</div>
+</body>
+</html>

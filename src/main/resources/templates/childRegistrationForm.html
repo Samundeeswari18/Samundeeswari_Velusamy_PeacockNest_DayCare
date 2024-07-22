@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enrollment</title>
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style}" >
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #e0f2f1;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #004d40;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #00796b;
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            padding: 12px;
+            border: 1px solid #004d40;
+            border-radius: 6px;
+            background-color: #e8f5e9;
+        }
+        input[type="file"] {
+            padding: 5px;
+            border: 1px solid #004d40;
+            border-radius: 6px;
+            background-color: #ffffff;
+        }
+        .gender-radio {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .gender-radio input[type="radio"] {
+            margin-right: 5px;
+        }
+        button {
+            padding: 12px;
+            background-color: #004d40;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #00332d;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html"  th:href="@{/index}">Home</a></li> <!-- Navigation link to Home page -->
+            <li><a href="about.html"  th:href="@{/about}">About Us</a></li> <!-- Navigation link to About Us page -->
+            <li>
+                <a href="#" class="dropdown-arrow">Services</a> <!-- Navigation link to Services with a dropdown menu and arrow -->
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html"  th:href="@{/contact}">Contact Us</a></li> <!-- Navigation link to Contact Us page -->
+            <li><a href="welcome.html"  th:href="@{/welcome}">Images/Videos</a></li>
+
+            <!--            <li>-->
+            <!--                <a href="#" class="dropdown-arrow">Registration</a> &lt;!&ndash; Navigation link to Login with a dropdown menu and arrow &ndash;&gt;-->
+            <!--                <ul class="dropdown">-->
+            <!--                    <li><a href="parentRegistrationForm.html" th:href="@{/parentRegister}">Parent</a></li> &lt;!&ndash; Dropdown link to Parent login &ndash;&gt;-->
+            <!--                    <li><a href="employeeRegistration.html" th:href="@{/employeeRegistration}">Admin</a></li> &lt;!&ndash; Dropdown link to Admin login &ndash;&gt;-->
+            <!--                </ul>-->
+            <!--            </li>-->
+
+            <!--            <li>-->
+            <!--                <a href="#" class="dropdown-arrow">Login/Registration</a> &lt;!&ndash; Navigation link to Login with a dropdown menu and arrow &ndash;&gt;-->
+            <!--                <ul class="dropdown">-->
+            <!--                    <li><a href="parentLogin.html" th:href="@{/parentLogin}">Parent</a></li> &lt;!&ndash; Dropdown link to Parent login &ndash;&gt;-->
+            <!--                    <li><a href="adminLogin.html" th:href="@{/adminLogin}">Admin</a></li> &lt;!&ndash; Dropdown link to Admin login &ndash;&gt;-->
+            <!--                </ul>-->
+            <!--            </li>-->
+            <li><a href="login.html"  th:href="@{/login}">Login/Registration</a></li>
+            <li><a href="childRegistrationForm.html" class="enroll-link" th:href="@{/childRegister}">Enroll</a></li> <!-- Navigation link to Enroll page -->
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Enroll a New Child at Peacock Nest Daycare</h2>
+    <form th:action="@{/childRegister}" th:object="${child}" method="post" enctype="multipart/form-data">
+
+        <!-- Uncomment if parentId needs to be hidden and set -->
+        <!-- <input type="hidden" id="parentId" name="parentId" th:value="${parentId}"> -->
+
+        <label for="name">Child First Name:</label>
+        <input type="text" id="firstname" name="name" th:field="*{childFirstName}" required>
+        <label for="name">Child Last Name:</label>
+        <input type="text" id="name" name="name" th:field="*{childLastName}" required>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" th:field="*{dob}" required>
+
+        <label >Gender:</label>
+        <div class="gender-radio">
+            <label>
+                <input type="radio" id="male" name="gender" value="Male" th:field="*{gender}" required> Male
+            </label>
+            <label>
+                <input type="radio" id="female" name="gender" value="Female" th:field="*{gender}" required> Female
+            </label>
+            <label>
+                <input type="radio" id="other" name="gender" value="Other" th:field="*{gender}" required> Other
+            </label>
+        </div>
+
+        <label for="medicalInfo">Medical Information:</label>
+        <input type="file" id="medicalInfo" name="medicalInfo" required>
+
+        <label for="photoUrl">Photo URL:</label>
+        <input type="file" id="photoUrl" name="photoUrl" required>
+
+        <label for="parentId">Parent ID:</label>
+        <input type="number" id="parentId" name="parentId" th:value="${parentId}" required>
+
+        <button type="submit">Add Child</button>
+    </form>
+</div>
+</body>
+</html>

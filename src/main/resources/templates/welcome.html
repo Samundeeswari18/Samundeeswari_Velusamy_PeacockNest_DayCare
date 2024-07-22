@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Meta tags for character set and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
+    <title>Welcome to Peacock Nest Daycare</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}" >
+    <!-- Link to Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General styling for the body */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+        /* Styling for the main heading */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* Flex container for slideshow and video */
+        .slideshow-container, #vid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        /* Styling for images in the slideshow */
+        .mySlides img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        /* Styling for navigation buttons in the slideshow */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev {
+            left: 0;
+        }
+        /* Styling for dot navigation */
+        .dot-container {
+            text-align: center;
+            padding: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+        /* Styling for individual content boxes */
+        .box2 {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            padding: 20px;
+            color: darkgreen;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: lightgrey;
+            border-radius: 10px;
+            text-align: center;
+            font-family: Baskerville Old Face;
+        }
+        h3 {
+            color: black;
+        }
+        /* Styling for the header */
+        header {
+            background-color: cadetblue;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        /* Styling for the navigation menu */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 1em;
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        /* Styling for dropdown menu */
+        nav ul li ul.dropdown {
+            display: none;
+            position: absolute;
+            background-color: cadetblue;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            top: 100%;
+            left: 0;
+        }
+        nav ul li:hover ul.dropdown {
+            display: block;
+        }
+        nav ul li ul.dropdown li {
+            margin: 0;
+        }
+        nav ul li ul.dropdown li a {
+            display: block;
+            padding: 0.5em 1em;
+        }
+        /* Styling for the footer */
+        footer {
+            background-color: cadetblue;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <!-- Navigation menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html" th:href="@{index}">Home</a></li>
+            <li><a href="about.html" th:href="@{about}">About Us</a></li>
+            <li>
+                <a href="#">Services</a>
+                <!-- Dropdown menu for services -->
+                <ul class="dropdown">
+                    <li><a href="fullTimeService.html"  th:href ="@{/fullTimeService}">Full-time Care</a></li> <!-- Dropdown link to Full-time Care -->
+                    <li><a href="partTimeService.html"  th:href="@{/partTimeService}">Part-time Care</a></li> <!-- Dropdown link to Part-time Care -->
+                    <li><a href="afterSchoolService.html" th:href="@{/afterSchoolService}">After-school Programs</a></li> <!-- Dropdown link to After-school Programs -->
+                </ul>
+            </li>
+            <li><a href="contact.html" th:href="@{contact}">Contact Us</a></li>
+            <li><a href="../templates/welcome.html" th:href="@{welcome}">Images/Videos</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main heading -->
+<h1>Welcome to Peacock Nest Daycare</h1>
+
+<!-- Container for slideshow and video -->
+<div class="slideshow-container">
+    <!-- Box for images slideshow -->
+    <div class="box2">
+        <h3>Images</h3>
+        <div class="mySlides">
+            <img src="../static/images/PNimage-1.jpg" th:src="@{/images/PNimage-1.jpg}" alt="Daycare Image 1">
+        </div>
+        <div class="mySlides">
+            <img src="../static/images/PNimage-2.jpg" th:src="@{/images/PNimage-2.jpg}" alt="Daycare Image 2">
+        </div>
+        <div class="mySlides">
+            <img src="../static/images/PNimage-4.jpg" th:src="@{/images/PNimage-4.jpg}"  alt="Daycare Image 3">
+        </div>
+        <div class="mySlides">
+            <img src="../static/images/daycare.jpg" th:src="@{/images/daycare.jpg}" alt="Daycare Image 4">
+        </div>
+        <div class="mySlides">
+            <img src="../static/images/Daycaretwo.jpg" th:src="@{/images/Daycaretwo.jpg}" alt="Daycare Image 5">
+        </div>
+        <div class="mySlides">
+            <img src="../static/images/daycare 3.jpg" th:src="@{/images/daycare 3.jpg}" alt="Daycare Image 6">
+        </div>
+        <div class="mySlides">
+            <img src="../static/images/PN_Banner.png" th:src="@{/images/PN_Banner.png}" alt="Daycare Image 7">
+        </div>
+
+        <!-- Navigation buttons for images -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Box for video -->
+    <div class="box2">
+        <div id="vid">
+            <h3>Videos</h3>
+            <!-- Video element -->
+            <video controls class="video-slide" width="100%" height="auto">
+                <source src="../static/video/PNvideo.mp4" th:src="@{/video/PNvideo.mp4}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+<!-- Dot navigation for slides -->
+<div class="dot-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+    <span class="dot" onclick="currentSlide(6)"></span>
+    <span class="dot" onclick="currentSlide(7)"></span>
+</div>
+
+<!-- Footer section -->
+<footer>
+    <p>&copy; 2024 Peacock Nest Daycare</p>
+</footer>
+
+<!-- JavaScript for slideshow functionality -->
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+</body>
+</html>
